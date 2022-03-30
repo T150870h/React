@@ -4,13 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <title>React-JSX</title>
 </head>
 <body>
-    
+    <div id= 'root'></div>
+   <script type="text/babel">
+    //    const ul = React.createElement('ul', null,
+    //          React.createElement('li', null, 'JavaScript'),
+    //          React.createElement('li', null, 'React'),
+    //           );
+
+
+           const coure  = [
+               { name: 'HTML,CSS'},
+               { name: 'Responsive web disign'},
+               { name: 'React JS'}
+           ];
+        //   const Jsx = (
+        //       <ul>
+        //         {
+        //           coure.map((course, index) => 
+        //             <li key ={index}>{course.name}</li>
+        //           )
+        //         }
+                
+        //       </ul>
+        //   );
+         
+
+        const Jsx = (
+           <React.Fragment>
+            <ul>
+                   {coure.map((coures, index) => 
+                       <li>{coures.name}</li>
+                   )}
+            </ul>
+          
+            </React.Fragment>
+        )
+
+
+        //  const ul = <ul>
+        //     <li>JavaScript</li>
+        //     <li>React</li>
+        //             </ul>
+         const root = document.getElementById('root');
+            ReactDOM.render(Jsx, root);
+   </script>
 </body>
 </html>
 <!--
+    JSX: Javascript XML 
     JSX (JavaScript XML) gần giống với HTML, nhưng khác với HTML, JSX có thể được sử dụng trong ReactJS
     JSX: - Cần có Javascript, Babel(dùng để chuyển đổi cú pháp) để dùng JSX
+    - Cách nhúng js vào JSX bằng cách  sử dụng dấu {cú pháp js}
+    - nếu dùng JSX để render 2 element trở lên mình phải có 1 wrapped
+       (ví dụ bọc div) cách sử lý bọc thêm <React.Fragment>
 -->
