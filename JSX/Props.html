@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <title>Props</title>
 </head>
+
 <body>
     <!-- 
         Props:
@@ -28,27 +30,66 @@
         - sử dụng destructuring 
      -->
     <div id="root"></div>
-<script type="text/babel">
-   function  PostItem() {
-          return (
-            <React.Fragment>
+
+    <script type="text/babel">
+
+        function PostItem({
+            image,
+            title,
+            description,
+            publishDate,
+            callback = () => {}
+        }) {
+            callback();
+        //    if (typeof props.callback === "function") 
+        //   props.callback(Math.random());
+            return (
+                <div className="post-item">
+                    <img
+                        src={image}
+                        alt={title}
+                    />
+                    <h2 className="post-title">{title}</h2>
+                    <p className= 'post-desc'>{description}</p>
+                    <p className= 'post-publ'>{publishDate}</p>
+                    </div>
+            )
+        }
+     function App() {
+         return (
+           <div id = 'Wrapper'>
+            <PostItem
+                image = 'https://img.websosanh.vn/v2/users/review/images/4wvuq0i4ozs1q.jpg?compress=85'
+                title = 'Nhà đất địa ốc Đà Nẵng'
+                description = 'Nhà đất địa ốc Đà Nẵng'
+                publishDate = '20/10/2019'
+               callback = {(random) => {
+                   console.log(random);
+               }}
+             
+             /> 
+             <PostItem
+                image = 'https://img.websosanh.vn/v2/users/review/images/4wvuq0i4ozs1q.jpg?compress=85'
+                title = 'Nhà đất địa ốc Đà Nẵng'
+                description = 'Nhà đất địa ốc Đà Nẵng'
+                publishDate = '20/10/2019'
                 
-                
-                
-                
-                </React.Fragment>
-          )
-   }
-
-
-
-
-</script>
-
-      
+             /> 
+             <PostItem
+                image = 'https://img.websosanh.vn/v2/users/review/images/4wvuq0i4ozs1q.jpg?compress=85'
+                title = 'Nhà đất địa ốc Đà Nẵng'
+                description = 'Nhà đất địa ốc Đà Nẵng'
+                publishDate = '20/10/2019'
+             /> 
+            </div>
+         )
+     }
+   ReactDOM.render(<App/>, document.getElementById("root"));
+    </script>
 
 
 
 
 </body>
+
 </html>
