@@ -46,6 +46,10 @@
         if (onClick) {
             Props.onClick = onClick
         }
+        if (href) {
+            Component = 'a'
+            Props.href = href
+        }
 
         return (
               <Component {...Props}>{title}</Component>
@@ -57,7 +61,7 @@
               <div id='wrapped'>
                     <Button
                     title = 'click me'
-                    // href = 'https://fullstack.edu.vn'
+                    href = 'https://fullstack.edu.vn'
                     onClick = {() => console.log(Math.random())}
                     />
                                   
