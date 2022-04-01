@@ -8,10 +8,18 @@
     <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
-    <title>Props 2</title>
+    <title>click event</title>
 </head>
 
 <body>
+    <!-- 
+         -  Xử lý DOM events
+         - Component do chúng ta định nghĩa phải viết hoa chữ cái đầu
+         - Booleans , undefined, null kh đc render
+         - Kết hợp toán tử Logic để render theo điều kiện 
+
+
+     -->
     <div id='root'></div>
     <script type="text/babel">
         const course = [
@@ -22,17 +30,23 @@
                 "image_url": "https://files.fullstack.edu.vn/f8-prod/courses/7.png",
             }
         ]
-        const PostItem =({course})=> (
+        //UI component: nhận dữ liệu để hiện thị
+        const PostItem =({course, onClick})=> (
             <div>
-                <h1 onClick={() => console.log(course.title)} className='title'>{course.title}</h1>
+                <h1 onClick = {() => onClick(course)} className='title'>{course.title}</h1>
                 <h2 className='slug'>{course.slug}</h2>
-                <img src={course.image} />
+                <img src={course.image}/>
 
             </div>
         )
-      
+        console.log(course)
 
+
+        // container: nơi chứa dữ liệu
         function App() {
+              const handlerClick = (course) => {
+                console.log(course.title)
+              }
             return (
                 <div className='wrapped'>
                     {course.map(course => (
@@ -42,12 +56,13 @@
                             // slug={course.slug}
                             // image={course.image_url}
                             course={course}
+                            onClick={handlerClick}
                         />
                     ))}
                 </div>
             )
         }
-        ReactDOM.render(<App />, document.getElementById('root'))
+        ReactDOM.render(<App/>, document.getElementById('root'))
 
     </script>
 

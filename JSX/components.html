@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>components</title>
+</head>
+
+<body>
+    <!-- 
+         -  Xử lý DOM events
+         - Component do chúng ta định nghĩa phải viết hoa chữ cái đầu
+         - Booleans , undefined, null kh đc render
+         - Kết hợp toán tử Logic để render theo điều kiện 
+     -->
+    <div id='root'></div>
+    <!-- <script type="text/babel">
+        const From = {
+            Input () {
+                return <input/>
+            }, 
+            Checkbox () {
+                return <input type="checkbox"/>
+            },
+        }    
+       function App() {
+           return (     
+               <div id ='wrapped'>
+                    <From.Input/>
+                    <From.Checkbox/>
+                </div>
+           )
+       } -->
+
+
+    <script type="text/babel">
+            
+     function  Button({title, href, onClick}) {
+        let Component = 'button' 
+        const Props = {}
+        if (onClick) {
+            Props.onClick = onClick
+        }
+
+        return (
+              <Component {...Props}>{title}</Component>
+          )
+          
+       }
+      const App = () => {
+       return (
+              <div id='wrapped'>
+                    <Button
+                    title = 'click me'
+                    // href = 'https://fullstack.edu.vn'
+                    onClick = {() => console.log(Math.random())}
+                    />
+                                  
+                </div>
+         )
+       
+
+      }
+      ReactDOM.render(<App/>, document.getElementById('root'))
+        
+        </script>
+     
+
+    </script>
+
+</body>
+
+</html>
