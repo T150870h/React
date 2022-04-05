@@ -17,6 +17,18 @@
          - Component do chúng ta định nghĩa phải viết hoa chữ cái đầu
          - Booleans , undefined, null kh đc render
          - Kết hợp toán tử Logic để render theo điều kiện 
+
+         phần 2:
+         -Props trong Jsx
+           <YourComponent 
+           propName1 = 'String literals'
+           propName2 = {expression}
+           />
+           - props default to 'true'
+           - Spread/ Rest  props
+           - Children  props
+              - <YourComponent>String literals</YourComponent>
+              - <YourComponent>{expression}</YourComponent>
      -->
     <div id='root'></div>
     <!-- <script type="text/babel">
@@ -39,41 +51,40 @@
 
 
     <script type="text/babel">
-            
-     function  Button({title, href, onClick}) {
-        let Component = 'button' 
-        const Props = {}
-        if (onClick) {
-            Props.onClick = onClick
-        }
-        if (href) {
-            Component = 'a'
-            Props.href = href
-        }
 
-        return (
-              <Component {...Props}>{title}</Component>
-          )
-          
-       }
-      const App = () => {
-       return (
-              <div id='wrapped'>
+        function Button({ title, href, onClick }) {
+            let Component = 'button'
+            const Props = {}
+            if (onClick) {
+                Props.onClick = onClick
+            }
+            if (href) {
+                Component = 'a'
+                Props.href = href
+            }
+            return (
+                <Component {...Props}>{title}</Component>
+            )
+
+        }
+        const App = () => {
+            return (
+                <div id='wrapped'>
                     <Button
-                    title = 'click me'
-                    href = 'https://fullstack.edu.vn'
-                    onClick = {() => console.log(Math.random())}
+                        title='click me'
+                        href='https://fullstack.edu.vn'
+                        onClick={() => console.log(Math.random())}
                     />
-                                  
-                </div>
-         )
-       
 
-      }
-      ReactDOM.render(<App/>, document.getElementById('root'))
-        
-        </script>
-     
+                </div>
+            )
+
+
+        }
+        ReactDOM.render(<App />, document.getElementById('root'))
+
+    </script>
+
 
     </script>
 
